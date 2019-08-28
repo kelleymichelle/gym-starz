@@ -1,8 +1,13 @@
 class GymsController < ApplicationController
 
   # GET: /gyms
-  get "/gyms" do
-    erb :"/gyms/index.html"
+  get "/signup" do
+    if !logged_in?
+      erb :"/gyms/new"
+    else
+      redirect "/gymnasts"
+    # erb :"/gyms/index.html"
+    end
   end
 
   # GET: /gyms/new

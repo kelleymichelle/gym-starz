@@ -5,4 +5,7 @@ if ActiveRecord::Migrator.needs_migration?
 end
 
 run ApplicationController
+use LevelsController
+use SkillsController
+use GymnastsController
 use GymsController
