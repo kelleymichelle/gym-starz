@@ -17,7 +17,7 @@ class GymsController < ApplicationController
     else
       @gym = Gym.new(params)
       @gym.save
-      session[:gym_id] = @gym.id
+      session[:id] = @gym.id
       redirect "/gymnasts"
     end    
   end  

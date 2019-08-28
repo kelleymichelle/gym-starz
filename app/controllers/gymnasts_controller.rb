@@ -1,6 +1,5 @@
 class GymnastsController < ApplicationController
 
-  # GET: /gymnasts
   get "/gymnasts" do
     if logged_in?
       @gymnasts = Gymnast.all
