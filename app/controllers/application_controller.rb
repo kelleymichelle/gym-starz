@@ -20,7 +20,7 @@ class ApplicationController < Sinatra::Base
     end
     
     def current_gym
-      @current_gym ||= Gym.find_by(id: session[:user_id]) if session[:user_id]
+      @current_gym ||= Gym.find_by(id: session[:gym_id]) if session[:gym_id]
     end  
   end
 end

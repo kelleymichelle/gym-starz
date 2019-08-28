@@ -10,19 +10,39 @@ class GymnastsController < ApplicationController
   end
 
   get "/gymnasts/new" do
+    binding.pry
     erb :"/gymnasts/new"
   end
 
   # POST: /gymnasts
   post "/gymnasts" do
-    binding.pry
-    redirect "/gymnasts"
+    if logged_in?
+      if params[:name] == ""
+        redirect "/gymnasts/new"
+      else
+        @gymnast =  Gymnast.create(params)
+        @gymnast.gym_id = current_gym.id
+        if @gymnast.save
+          redirect "/gymnasts/#{@gymnast.id}"
+        else  
+          redirect "/gymnasts/new"
+        end
+      end
+    else
+      redirect "/login"
+    end
   end
 
-  # # GET: /gymnasts/5
-  # get "/gymnasts/:id" do
-  #   erb :"/gymnasts/show.html"
-  # end
+  # GET: /gymnasts/5
+  get "/gymnasts/:id" do
+    # binding.pry
+    if logged_in?
+      @gymnast = Gymnast.find_by_id(params[:id])
+      erb :"/gymnasts/show"
+    else
+      redirect "/login"
+    end  
+  end
 
   # # GET: /gymnasts/5/edit
   # get "/gymnasts/:id/edit" do
