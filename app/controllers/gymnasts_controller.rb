@@ -14,10 +14,11 @@ class GymnastsController < ApplicationController
     erb :"/gymnasts/new"
   end
 
-  # # POST: /gymnasts
-  # post "/gymnasts" do
-  #   redirect "/gymnasts"
-  # end
+  # POST: /gymnasts
+  post "/gymnasts" do
+    binding.pry
+    redirect "/gymnasts"
+  end
 
   # # GET: /gymnasts/5
   # get "/gymnasts/:id" do

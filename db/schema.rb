@@ -19,7 +19,8 @@ ActiveRecord::Schema.define(version: 20190828021418) do
   end
 
   create_table "gymnasts", force: :cascade do |t|
-    t.string "name"
+    t.string  "name"
+    t.integer "gym_id"
   end
 
   create_table "gyms", force: :cascade do |t|
