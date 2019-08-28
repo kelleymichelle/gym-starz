@@ -10,10 +10,9 @@ class GymnastsController < ApplicationController
     end  
   end
 
-  # # GET: /gymnasts/new
-  # get "/gymnasts/new" do
-  #   erb :"/gymnasts/new.html"
-  # end
+  get "/gymnasts/new" do
+    erb :"/gymnasts/new"
+  end
 
   # # POST: /gymnasts
   # post "/gymnasts" do

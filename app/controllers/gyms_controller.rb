@@ -30,33 +30,23 @@ class GymsController < ApplicationController
     end    
   end  
 
-  # # GET: /gyms/new
-  # get "/gyms/new" do
-  #   erb :"/gyms/new.html"
-  # end
+  post "/login" do
+    gym = Gym.find_by(:name => params[:name])
+    if gym && gym.authenticate(params[:password])
+      session[:gym_id] = gym.id
+      redirect "/gymnasts"
+    else 
+      redirect "/signup"
+    end   
+  end 
+  
+  get "/logout" do
+    if logged_in?
+      session.destroy
+      redirect "/login"
+    else
+      redirect "/"
+    end    
+  end  
 
-  # # POST: /gyms
-  # post "/gyms" do
-  #   redirect "/gyms"
-  # end
-
-  # # GET: /gyms/5
-  # get "/gyms/:id" do
-  #   erb :"/gyms/show.html"
-  # end
-
-  # # GET: /gyms/5/edit
-  # get "/gyms/:id/edit" do
-  #   erb :"/gyms/edit.html"
-  # end
-
-  # # PATCH: /gyms/5
-  # patch "/gyms/:id" do
-  #   redirect "/gyms/:id"
-  # end
-
-  # # DELETE: /gyms/5/delete
-  # delete "/gyms/:id/delete" do
-  #   redirect "/gyms"
-  # end
 end
