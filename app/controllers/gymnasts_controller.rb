@@ -10,7 +10,7 @@ class GymnastsController < ApplicationController
   end
 
   get "/gymnasts/new" do
-    binding.pry
+    # binding.pry
     erb :"/gymnasts/new"
   end
 
@@ -44,10 +44,11 @@ class GymnastsController < ApplicationController
     end  
   end
 
-  # # GET: /gymnasts/5/edit
-  # get "/gymnasts/:id/edit" do
-  #   erb :"/gymnasts/edit.html"
-  # end
+  # GET: /gymnasts/5/edit
+  get "/gymnasts/:id/edit" do
+    "Edit Gymnast here!"
+    erb :"/gymnasts/edit"
+  end
 
   # # PATCH: /gymnasts/5
   # patch "/gymnasts/:id" do
