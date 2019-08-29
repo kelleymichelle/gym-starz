@@ -1,5 +1,15 @@
-<h1>Show all Gymnasts for Gym here!!!</h1>
+<h1>Welcome, <%= current_gym.name %></h1>
+<br>
+<h2>Current Gymnasts:</h2>
+<br>
+  <% @gymnasts.each do |gymnast| %>
+    <div>
+      <h3><a href="/gymnasts/<%= gymnast.id %>"><%= gymnast.name %></a></h3><br>
+    </div>
+  <% end %>    
 
-<h2><a href="/gymnasts/new">Add Gymnast</a></h2>
+<br>
+
+<h4><a href="/gymnasts/new">Add Gymnast</a></h4>
 
 
