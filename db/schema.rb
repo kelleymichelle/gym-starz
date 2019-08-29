@@ -34,8 +34,8 @@ ActiveRecord::Schema.define(version: 20190828021418) do
 
   create_table "skills", force: :cascade do |t|
     t.string  "name"
-    t.string  "type"
-    t.integer "level"
+    t.string  "category"
+    t.integer "level_id"
   end
 
 end
