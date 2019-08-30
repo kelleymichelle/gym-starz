@@ -5,20 +5,15 @@ class LevelsController < ApplicationController
   #   erb :"/levels/index.html"
   # end
 
-  # # GET: /levels/new
-  # get "/levels/new" do
-  #   erb :"/levels/new.html"
-  # end
-
-  # # POST: /levels
-  # post "/levels" do
-  #   redirect "/levels"
-  # end
-
-  # # GET: /levels/5
-  # get "/levels/:id" do
-  #   erb :"/levels/show.html"
-  # end
+  # GET: /levels/5
+  get "/levels/:id" do
+    if logged_in?
+      @level = Level.find_by_id(params[:id])
+        erb :"/levels/show"
+    else  
+      redirect "/gymnasts"
+    end  
+  end
 
   # # GET: /levels/5/edit
   # get "/levels/:id/edit" do

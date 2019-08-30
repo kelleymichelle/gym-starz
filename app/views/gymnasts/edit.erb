@@ -1,1 +1,5 @@
 <h1>Add Skills Mastered</h1>
+
+<% Level.all.each do |level| %>
+  <h3><a href="/levels/<%= level.gym_level %>">Level <%= level.gym_level %> </a></h3>
+<% end %>  

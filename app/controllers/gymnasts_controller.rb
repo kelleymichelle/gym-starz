@@ -49,6 +49,7 @@ class GymnastsController < ApplicationController
     "Edit Gymnast here!"
     erb :"/gymnasts/edit"
   end
+  #edit link links to /levels/:id with list of levels as links
 
   # # PATCH: /gymnasts/5
   # patch "/gymnasts/:id" do
