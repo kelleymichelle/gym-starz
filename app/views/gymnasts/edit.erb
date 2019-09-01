@@ -1,5 +1,5 @@
-<h1>Add Skills Mastered</h1>
+<h1>Add Skills Mastered for <%= @gymnast.name %></h1>
 
 <% Level.all.each do |level| %>
-  <h3><a href="/levels/<%= level.gym_level %>">Level <%= level.gym_level %> </a></h3>
+  <h3><a href="/gymnasts/<%= @gymnast.id %>/levels/<%= level.id %>">Level <%= level.gym_level %> </a></h3>
 <% end %>  

@@ -6,15 +6,15 @@ class LevelsController < ApplicationController
   # end
 
   # GET: /levels/5
-  get "/levels/:id" do
-    raise params.inspect
-    if logged_in?
-      @level = Level.find_by_id(params[:id])
-        erb :"/levels/show"
-    else  
-      redirect "/gymnasts"
-    end  
-  end
+  # get "/levels/:id" do
+  #   raise params.inspect
+  #   if logged_in?
+  #     @level = Level.find_by_id(params[:id])
+  #       erb :"/levels/show"
+  #   else  
+  #     redirect "/gymnasts"
+  #   end  
+  # end
 
   # # GET: /levels/5/edit
   # get "/levels/:id/edit" do

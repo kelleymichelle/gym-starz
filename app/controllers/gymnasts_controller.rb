@@ -46,11 +46,26 @@ class GymnastsController < ApplicationController
 
   # GET: /gymnasts/5/edit
   get "/gymnasts/:gymnast_id/levels" do
-    
-    "Edit Gymnast here!"
-    erb :"/gymnasts/edit"
+    # raise params.inspect
+    if logged_in?
+      @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+      erb :"/gymnasts/edit"
+    else
+      redirect "/login"
+    end    
   end
   #gynasts/gymnast_id/levels/level_id/edit
+
+  get "/gymnasts/:gymnast_id/levels/:level_id" do
+    raise params.inspect
+    if logged_in?
+      @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+      @level = Level.find_by_id(params[:level_id])
+      
+    else
+      redirect "/login"  
+    end  
+  end  
 
   # # PATCH: /gymnasts/5
   # patch "/gymnasts/:id" do
