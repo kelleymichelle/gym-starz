@@ -45,11 +45,12 @@ class GymnastsController < ApplicationController
   end
 
   # GET: /gymnasts/5/edit
-  get "/gymnasts/:id/edit" do
+  get "/gymnasts/:gymnast_id/levels" do
+    
     "Edit Gymnast here!"
     erb :"/gymnasts/edit"
   end
-  #edit link links to /levels/:id with list of levels as links
+  #gynasts/gymnast_id/levels/level_id/edit
 
   # # PATCH: /gymnasts/5
   # patch "/gymnasts/:id" do

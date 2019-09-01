@@ -7,6 +7,7 @@ class LevelsController < ApplicationController
 
   # GET: /levels/5
   get "/levels/:id" do
+    raise params.inspect
     if logged_in?
       @level = Level.find_by_id(params[:id])
         erb :"/levels/show"
