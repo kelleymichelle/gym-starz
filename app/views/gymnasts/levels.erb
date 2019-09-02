@@ -1,0 +1,5 @@
+<h1>Skill Levels - <%= @gymnast.name %></h1>
+
+<% Level.all.each do |level| %>
+  <h3><a href="/gymnasts/<%= @gymnast.id %>/levels/<%= level.id %>">Level <%= level.gym_level %> </a></h3>
+<% end %>  

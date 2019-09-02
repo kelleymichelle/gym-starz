@@ -1,5 +1,11 @@
-<h1>Add Skills Mastered for <%= @gymnast.name %></h1>
-
-<% Level.all.each do |level| %>
-  <h3><a href="/gymnasts/<%= @gymnast.id %>/levels/<%= level.id %>">Level <%= level.gym_level %> </a></h3>
-<% end %>  
+<h1>Level <%= @level.gym_level %> Skills for <%= @gymnast.name %></h1>
+  <br>
+  <form action="/gymnasts/<%= @gymnast.id %>/levels/<%= @level.id %>/edit" method="POST">
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <% @skills.each do |skill| %>
+      <input type="checkbox" name="gymnast_skill" value="gymnast_skill"><h4><%= skill.category %> - <%= skill.name %></h4>
+      <br>
+  <% end %>
+  <br>
+  <input type="submit" value="Submit">
+  </form>

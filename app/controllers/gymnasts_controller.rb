@@ -49,7 +49,7 @@ class GymnastsController < ApplicationController
     # raise params.inspect
     if logged_in?
       @gymnast = Gymnast.find_by_id(params[:gymnast_id])
-      erb :"/gymnasts/edit"
+      erb :"/gymnasts/levels"
     else
       redirect "/login"
     end    
@@ -57,20 +57,21 @@ class GymnastsController < ApplicationController
   #gynasts/gymnast_id/levels/level_id/edit
 
   get "/gymnasts/:gymnast_id/levels/:level_id" do
-    raise params.inspect
+    # raise params.inspect
     if logged_in?
       @gymnast = Gymnast.find_by_id(params[:gymnast_id])
       @level = Level.find_by_id(params[:level_id])
-      
+      @skills = Skill.where("level_id=?", @level.gym_level)
+      erb :"gymnasts/edit"
     else
       redirect "/login"  
     end  
   end  
 
-  # # PATCH: /gymnasts/5
-  # patch "/gymnasts/:id" do
-  #   redirect "/gymnasts/:id"
-  # end
+  # PATCH: /gymnasts/5
+  patch "/gymnasts/:gymnast_id/levels/:level_id/edit" do
+    raise params.inspect
+  end
 
   # # DELETE: /gymnasts/5/delete
   # delete "/gymnasts/:id/delete" do
