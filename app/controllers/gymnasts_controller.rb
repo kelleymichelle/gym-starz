@@ -69,7 +69,7 @@ class GymnastsController < ApplicationController
   end  
 
   # PATCH: /gymnasts/5
-  patch "/gymnasts/:gymnast_id/levels/:level_id/edit" do
+  patch "/gymnasts/:gymnast_id/levels/:level_id" do
     raise params.inspect
   end
 

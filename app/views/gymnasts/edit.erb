@@ -1,9 +1,9 @@
 <h1>Level <%= @level.gym_level %> Skills for <%= @gymnast.name %></h1>
   <br>
-  <form action="/gymnasts/<%= @gymnast.id %>/levels/<%= @level.id %>/edit" method="POST">
+  <form method="post" action="/gymnasts/<%= @gymnast.id %>/levels/<%= @level.id %>">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
     <% @skills.each do |skill| %>
-      <input type="checkbox" name="gymnast_skill" value="gymnast_skill"><h4><%= skill.category %> - <%= skill.name %></h4>
+      <input type="checkbox" name="gymnast[skills][]" value="<%= skill.id %>"><h4><%= skill.category %> - <%= skill.name %></h4>
       <br>
   <% end %>
   <br>
