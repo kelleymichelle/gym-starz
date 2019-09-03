@@ -68,7 +68,11 @@ class GymnastsController < ApplicationController
 
   # gymnast[skills] = skill_ids, gymnast_id, level_id
   patch "/gymnasts/:gymnast_id/levels/:level_id" do
-    raise params.inspect
+    # raise params.inspect
+    @level = Level.find_by_id(params[:level_id])
+    @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+    @skills_arr = params[:gymnast][:skills]
+    
   end
 
   # # DELETE: /gymnasts/5/delete
