@@ -44,9 +44,7 @@ class GymnastsController < ApplicationController
     end  
   end
 
-  # GET: /gymnasts/5/edit
   get "/gymnasts/:gymnast_id/levels" do
-    # raise params.inspect
     if logged_in?
       @gymnast = Gymnast.find_by_id(params[:gymnast_id])
       erb :"/gymnasts/levels"
@@ -56,7 +54,7 @@ class GymnastsController < ApplicationController
   end
   #gynasts/gymnast_id/levels/level_id/edit
 
-  get "/gymnasts/:gymnast_id/levels/:level_id" do
+  get "/gymnasts/:gymnast_id/levels/:level_id/edit" do
     # raise params.inspect
     if logged_in?
       @gymnast = Gymnast.find_by_id(params[:gymnast_id])
@@ -68,7 +66,7 @@ class GymnastsController < ApplicationController
     end  
   end  
 
-  # PATCH: /gymnasts/5
+  # gymnast[skills] = skill_ids, gymnast_id, level_id
   patch "/gymnasts/:gymnast_id/levels/:level_id" do
     raise params.inspect
   end
