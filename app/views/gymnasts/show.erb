@@ -4,11 +4,16 @@
 <br>
 
 <% Level.all.each do |level| %>
-  <h3>Level <%= level.gym_level %> Skills </h3>
-  <% @gymnast.skills.where("level_id = ?", level.gym_level).each do |skill| %>
-    <% if skill %>
-      <h3><%= skill.category %>: <%= skill.name %></h3>
-      
+<h2>Level <%= level.gym_level %> Skills </h2>
+  <% if @gymnast.skills.where("level_id = ?", level.gym_level).empty? %>
+    <p> No skills for <%= level.gym_level %> </p>
+    
+  <% else %>  
+    <% @gymnast.skills.where("level_id = ?", level.gym_level).each do |skill| %>
+      <% if skill %>
+        <h4><%= skill.category %>: <%= skill.name %></h4>
+        <br>
+      <% end %> 
     <% end %>  
   <% end %>  
 <% end %>  
