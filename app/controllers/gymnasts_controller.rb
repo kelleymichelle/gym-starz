@@ -86,12 +86,10 @@ class GymnastsController < ApplicationController
     redirect "/gymnasts/#{@gymnast.id}"
   end
 
-  # DELETE: /gymnasts/5/delete
   delete "/gymnasts/:id/delete" do
     if logged_in?
       @gymnast = Gymnast.find_by_id(params[:id])
-      if @gymnast.gym_id == current_gym.id
-        
+      if @gymnast.gym_id == current_gym.id 
         @gymnast.destroy
       end  
         redirect "/gymnasts"
@@ -99,4 +97,6 @@ class GymnastsController < ApplicationController
       redirect "/login"
     end      
   end
+
+
 end
