@@ -6,7 +6,7 @@
 <% Level.all.each do |level| %>
 <h2>Level <%= level.gym_level %> Skills </h2>
   <% if @gymnast.skills.where("level_id = ?", level.gym_level).empty? %>
-    <p> No skills for <%= level.gym_level %> </p>
+    <p> No skills yet mastered for Level <%= level.gym_level %> </p>
     
   <% else %>  
     <% @gymnast.skills.where("level_id = ?", level.gym_level).each do |skill| %>
