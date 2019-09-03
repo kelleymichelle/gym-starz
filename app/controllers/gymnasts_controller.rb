@@ -90,8 +90,9 @@ class GymnastsController < ApplicationController
   delete "/gymnasts/:id/delete" do
     if logged_in?
       @gymnast = Gymnast.find_by_id(params[:id])
-      if @gymnast && @gymnast.gym_id == current_user
-        @gymnast.delete
+      if @gymnast.gym_id == current_gym.id
+        
+        @gymnast.destroy
       end  
         redirect "/gymnasts"
     else
