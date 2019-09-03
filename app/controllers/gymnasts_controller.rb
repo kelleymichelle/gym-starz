@@ -2,7 +2,8 @@ class GymnastsController < ApplicationController
 
   get "/gymnasts" do
     if logged_in?
-      @gymnasts = Gymnast.all
+      # binding.pry
+      @gymnasts = Gymnast.where("gym_id = ?", current_gym.id)
       erb :"/gymnasts/index"
     else
       redirect "/login"  

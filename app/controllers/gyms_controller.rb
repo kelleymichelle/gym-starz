@@ -11,7 +11,7 @@ class GymsController < ApplicationController
   end
 
   post "/signup" do
-    binding.pry
+    # binding.pry
     if params[:name] == "" || params[:password] == ""
       redirect "/signup"
     else
