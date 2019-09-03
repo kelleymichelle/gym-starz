@@ -68,20 +68,34 @@ class GymnastsController < ApplicationController
 
   # gymnast[skills] = skill_ids, gymnast_id, level_id
   patch "/gymnasts/:gymnast_id/levels/:level_id" do
-    # raise params.inspect
-    @level = Level.find_by_id(params[:level_id])
-    @gymnast = Gymnast.find_by_id(params[:gymnast_id])
-    @skills_arr = params[:gymnast][:skills]
-    @skills_arr.each do |skill|
-      new_skill = Skill.find_by_id(skill)
-      @gymnast.skills.push(new_skill)
-      @gymnast.save
-    end
+    if logged_in?
+      if params[:gymnast][:skills] == ""
+        redirect "/gymnasts/#{params[:gymnast_id]}/levels/#{params[:level_id]}/edit"
+      else  
+        @level = Level.find_by_id(params[:level_id])
+        @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+        @skills_arr = params[:gymnast][:skills]
+        @skills_arr.each do |skill|
+          new_skill = Skill.find_by_id(skill)
+          @gymnast.skills.push(new_skill)
+          @gymnast.save
+    
+        end
+      end
+    end    
     redirect "/gymnasts/#{@gymnast.id}"
   end
 
-  # # DELETE: /gymnasts/5/delete
-  # delete "/gymnasts/:id/delete" do
-  #   redirect "/gymnasts"
-  # end
+  # DELETE: /gymnasts/5/delete
+  delete "/gymnasts/:id/delete" do
+    if logged_in?
+      @gymnast = Gymnast.find_by_id(params[:id])
+      if @gymnast && @gymnast.gym_id == current_user
+        @gymnast.delete
+      end  
+        redirect "/gymnasts"
+    else
+      redirect "/login"
+    end      
+  end
 end
