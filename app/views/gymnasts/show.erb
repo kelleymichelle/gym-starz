@@ -2,8 +2,16 @@
 <br>
 <h2>Skills Mastered:</h2>
 <br>
-<% @gymnast.skills.each do |skill| %>
-  <h3><%= skill.category %>: <%= skill.name %></h3>
+
+<% Level.all.each do |level| %>
+  <h3>Level <%= level.gym_level %> Skills </h3>
+  <% @gymnast.skills.where("level_id = ?", level.gym_level).each do |skill| %>
+    <% if skill %>
+      <h3><%= skill.category %>: <%= skill.name %></h3>
+      
+    <% end %>  
+  <% end %>  
 <% end %>  
+<br>
 <br>
 <h4><a href="/gymnasts/<%= @gymnast.id %>/levels">Add skills mastered</a></h4>
