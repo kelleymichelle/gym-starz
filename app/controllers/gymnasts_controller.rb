@@ -72,7 +72,12 @@ class GymnastsController < ApplicationController
     @level = Level.find_by_id(params[:level_id])
     @gymnast = Gymnast.find_by_id(params[:gymnast_id])
     @skills_arr = params[:gymnast][:skills]
-    
+    @skills_arr.each do |skill|
+      new_skill = Skill.find_by_id(skill)
+      @gymnast.skills.push(new_skill)
+      @gymnast.save
+    end
+    redirect "/gymnasts/#{@gymnast.id}"
   end
 
   # # DELETE: /gymnasts/5/delete

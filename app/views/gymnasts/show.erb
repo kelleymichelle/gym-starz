@@ -2,4 +2,8 @@
 <br>
 <h2>Skills Mastered:</h2>
 <br>
+<% @gymnast.skills.each do |skill| %>
+  <h3><%= skill.category %>: <%= skill.name %></h3>
+<% end %>  
+<br>
 <h4><a href="/gymnasts/<%= @gymnast.id %>/levels">Add skills mastered</a></h4>
