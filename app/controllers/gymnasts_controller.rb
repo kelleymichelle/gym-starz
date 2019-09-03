@@ -37,8 +37,9 @@ class GymnastsController < ApplicationController
   # GET: /gymnasts/5
   get "/gymnasts/:id" do
     # binding.pry
-    if logged_in?
-      @gymnast = Gymnast.find_by_id(params[:id])
+    @gymnast = Gymnast.find_by_id(params[:id])
+
+    if logged_in? && @gymnast.gym_id == current_gym.id
       erb :"/gymnasts/show"
     else
       redirect "/login"
@@ -46,8 +47,8 @@ class GymnastsController < ApplicationController
   end
 
   get "/gymnasts/:gymnast_id/levels" do
-    if logged_in?
-      @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+    @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+    if logged_in? && @gymnast.gym_id == current_gym.id
       erb :"/gymnasts/levels"
     else
       redirect "/login"
@@ -57,8 +58,8 @@ class GymnastsController < ApplicationController
 
   get "/gymnasts/:gymnast_id/levels/:level_id/edit" do
     # raise params.inspect
-    if logged_in?
-      @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+    @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+    if logged_in? && @gymnast.gym_id == current_gym.id
       @level = Level.find_by_id(params[:level_id])
       @skills = Skill.where("level_id=?", @level.gym_level)
       erb :"gymnasts/edit"
