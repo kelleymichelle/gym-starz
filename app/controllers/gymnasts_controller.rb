@@ -71,14 +71,21 @@ class GymnastsController < ApplicationController
   # gymnast[skills] = skill_ids, gymnast_id, level_id
   patch "/gymnasts/:gymnast_id/levels/:level_id" do
     if logged_in?
+      @level = Level.find_by_id(params[:level_id])
+      @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+      # @skills_arr = params[:gymnast][:skills]
+      
       if params[:gymnast][:skills] == ""
-        redirect "/gymnasts/#{params[:gymnast_id]}/levels/#{params[:level_id]}/edit"
+        redirect "/gymnasts/#{@gymnast.id}"
       else  
-        @level = Level.find_by_id(params[:level_id])
-        @gymnast = Gymnast.find_by_id(params[:gymnast_id])
+        # @level = Level.find_by_id(params[:level_id])
+        # @gymnast = Gymnast.find_by_id(params[:gymnast_id])
         @skills_arr = params[:gymnast][:skills]
+        # binding.pry
+        # @gymnast.skills.where("level_id = ?", @level.gym_level).delete_all
         @skills_arr.each do |skill|
           new_skill = Skill.find_by_id(skill)
+          # binding.pry
           if @gymnast.skills.include?(new_skill) == false
             @gymnast.skills.push(new_skill)
             @gymnast.save
