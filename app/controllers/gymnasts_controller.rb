@@ -79,9 +79,10 @@ class GymnastsController < ApplicationController
         @skills_arr = params[:gymnast][:skills]
         @skills_arr.each do |skill|
           new_skill = Skill.find_by_id(skill)
-          @gymnast.skills.push(new_skill)
-          @gymnast.save
-    
+          if @gymnast.skills.include?(new_skill) == false
+            @gymnast.skills.push(new_skill)
+            @gymnast.save
+          end
         end
       end
     end    
