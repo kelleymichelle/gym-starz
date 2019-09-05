@@ -1,4 +1,11 @@
-<center><h1>Gym Starz</h1>
+<html>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Barriecito&display=swap" rel="stylesheet">
+
+<center>
+<div style="font-family: 'Barriecito', cursive;"><h1>Gym Starz</h1></div>
+<br><br><br>
+<head>
 <header><img align="middle" src="/images/3_gyms.png"></header>
 <h3>Please sign-in or sign-up below:</h3>
 <br>
@@ -9,10 +16,12 @@
     <p>Welcome, <%= current_gym.name %></p>
 
   <% else %>
-    <a href="/signup">Sign Up</a>
-    <a href="/login">Sign In</a>
+    <a href="/signup" class="button"><button type="submit"> Sign Up </button></a>
+    <a href="/login" class="button"><button type="submit"> Sign In </button></a>
 
   <% end %>
 
 </nav>
 </center>
+
+</html>
