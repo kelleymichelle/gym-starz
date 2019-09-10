@@ -49,4 +49,8 @@ class GymsController < ApplicationController
     end    
   end  
 
+  get "/*" do
+    erb :error
+  end
+
 end
