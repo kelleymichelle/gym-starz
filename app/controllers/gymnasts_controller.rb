@@ -2,7 +2,6 @@ class GymnastsController < ApplicationController
 
   get "/gymnasts" do
     if logged_in?
-      # binding.pry
       @gymnasts = Gymnast.where("gym_id = ?", current_gym.id)
       erb :"/gymnasts/index"
     else
@@ -11,11 +10,9 @@ class GymnastsController < ApplicationController
   end
 
   get "/gymnasts/new" do
-    # binding.pry
     erb :"/gymnasts/new"
   end
 
-  # POST: /gymnasts
   post "/gymnasts" do
     if logged_in?
       if params[:name] == ""
@@ -34,9 +31,7 @@ class GymnastsController < ApplicationController
     end
   end
 
-  # GET: /gymnasts/5
   get "/gymnasts/:id" do
-    # binding.pry
     @gymnast = Gymnast.find_by_id(params[:id])
 
     if logged_in? && @gymnast.gym_id == current_gym.id
@@ -54,10 +49,8 @@ class GymnastsController < ApplicationController
       redirect "/login"
     end    
   end
-  #gynasts/gymnast_id/levels/level_id/edit
 
   get "/gymnasts/:gymnast_id/levels/:level_id/edit" do
-    # raise params.inspect
     @gymnast = Gymnast.find_by_id(params[:gymnast_id])
     if logged_in? && @gymnast.gym_id == current_gym.id
       @level = Level.find_by_id(params[:level_id])
@@ -68,24 +61,17 @@ class GymnastsController < ApplicationController
     end  
   end  
 
-  # gymnast[skills] = skill_ids, gymnast_id, level_id
   patch "/gymnasts/:gymnast_id/levels/:level_id" do
     if logged_in?
       @level = Level.find_by_id(params[:level_id])
       @gymnast = Gymnast.find_by_id(params[:gymnast_id])
-      # @skills_arr = params[:gymnast][:skills]
       
       if params[:gymnast][:skills] == ""
         redirect "/gymnasts/#{@gymnast.id}"
       else  
-        # @level = Level.find_by_id(params[:level_id])
-        # @gymnast = Gymnast.find_by_id(params[:gymnast_id])
         @skills_arr = params[:gymnast][:skills]
-        # binding.pry
-        # @gymnast.skills.where("level_id = ?", @level.gym_level).delete_all
         @skills_arr.each do |skill|
           new_skill = Skill.find_by_id(skill)
-          # binding.pry
           if @gymnast.skills.include?(new_skill) == false
             @gymnast.skills.push(new_skill)
             @gymnast.save

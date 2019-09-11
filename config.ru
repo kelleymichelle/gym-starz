@@ -6,7 +6,5 @@ end
 
 use Rack::MethodOverride
 run ApplicationController
-use LevelsController
-use SkillsController
 use GymnastsController
 use GymsController

@@ -1,17 +1,14 @@
 class GymsController < ApplicationController
 
-  # GET: /gyms
   get "/signup" do
     if !logged_in?
       erb :"/gyms/new"
     else
       redirect "/gymnasts"
-    # erb :"/gyms/index.html"
     end
   end
 
   post "/signup" do
-    # binding.pry
     if params[:name] == "" || params[:password] == ""
       redirect "/signup"
     else
