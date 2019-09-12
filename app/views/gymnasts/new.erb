@@ -1,10 +1,34 @@
-<h2>Add a Gymnast</h2>
+<%# <h2>Add a Gymnast</h2>
 <form action="/gymnasts" method="post">
   <br><p>Name: <input type="text" name="name"></p>
   <input class="btn btn-primary" type="submit" value="Submit">
 </form>
 <center>
 <img align="center" src="/images/teacupbunny.jpg" style="height: auto; width: auto; max-width: 300px; max-height: 300px;">
-</center>
+</center> %>
+
+<style>
+  .add-gymnast-wrapper {
+    display: flex;
+      justify-content: space-evenly;
+  }
+  .form-wrapper {
+        display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-right: 32px;
+  }
+</style>
+<div class="add-gymnast-wrapper">
+  <div class="form-wrapper">
+    <h2>Add a Gymnast</h2>
+    <form action="/gymnasts" method="post">
+      <br>
+      <p>Name: <input type="text" name="name"></p>
+      <input class="btn btn-primary" type="submit" value="Submit">
+    </form>
+  </div>
+  <img src="/images/teacupbunny.jpg" style="height: auto; width: auto; max-width: 500px; max-height: 500px;">
+</div>
 
 

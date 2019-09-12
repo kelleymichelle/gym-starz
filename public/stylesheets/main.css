@@ -24,7 +24,7 @@
     background: #fff;
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
-    box-shadow: 0 0 10px rgba(0,0,0,.3);
+    box-shadow: 12px 13px 10px rgba(0,0,0,.3);
     margin: 16px auto;
     max-width: 1260px;
     padding: 2.25%; /* 18px / 800px */
@@ -84,6 +84,11 @@
     border-top: 2px solid #ccc;
     margin-top: 20px;
     padding-top: 20px;
+  }
+
+  .skill-label {
+    display: inline;
+    margin-left: 12px;
   }
 }
 
