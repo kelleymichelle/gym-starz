@@ -5,11 +5,13 @@
 <div class="gym-index">
 <div class="index-header"><h2>Current Gymnasts:</h2></div>
 <br>
+<div class="gymnast">
   <% @gymnasts.each do |gymnast| %>
-    <div class="gymnast">
+    
       <h3><a href="/gymnasts/<%= gymnast.id %>"><%= gymnast.name %></a></h3><br>
-    </div>
-  <% end %>    
+    
+  <% end %>  
+  </div>  
 <%# </div> %>
 <br>
 

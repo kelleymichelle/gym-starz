@@ -118,11 +118,13 @@
   }
   .index-header {
     padding: 20px;
-    justify-content: stretch    
+    justify-content: stretch;   
+    /* margin-top: 30px; */
   }
   .gymnast {
     justify-self: center;
     grid-column-start: 1;
+    margin-top: 25px;
     /* grid-column-end: 3; */
 
   }
