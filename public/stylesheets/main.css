@@ -90,7 +90,7 @@
     display: inline;
     margin-left: 12px;
   }
-
+/* gymnast edit page */
   .levels {
     display: flex;
     flex-direction: column;
@@ -104,34 +104,42 @@
     display: flex;
     flex-direction: column;
   }
-
+/* gymnast index page */
   .gym-index {
-    display: flex;
-    flex-direction: column;
+    /* display: flex; */
+    /* flex-direction: column; */
+    display: grid;
+    grid-template-columns: 1fr 1fr 2fr;
+    grid-template-rows: 100px;
     margin-top: 30px;
     margin-left: 40px;
     justify-content: space-evenly;
+    grid-auto-flow: row;
   }
   .index-header {
     padding: 20px;
     justify-content: stretch    
   }
   .gymnast {
-    justify-items: right;
-  }
-  /* .gym-pic-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-  } */
+    justify-self: center;
+    grid-column-start: 1;
+    /* grid-column-end: 3; */
 
+  }
+  .gym-pic-container {
+    justify-self: right;
+    grid-column-start: 3;
+    /* grid-column-end: 4; */
+    grid-row-start: 2;
+  }
+  /* links at bottom of show pages */
   .nav-links {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin-top: 60px;
   }
-
+  /* gymnast show page */
   .container {
     display: inline-grid;
     grid-template-columns: 50%;
@@ -146,6 +154,12 @@
     border: 1px solid black;
   }
   .item-2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 1px solid black;
+    padding: 20px;
+  }
+  .no-skills {
     grid-column-start: 2;
     grid-column-end: 3;
     border: 1px solid black;
