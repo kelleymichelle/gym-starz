@@ -3,3 +3,8 @@
 <% Level.all.each do |level| %>
   <h3><a href="/gymnasts/<%= @gymnast.id %>/levels/<%= level.id %>/edit">Level <%= level.gym_level %> </a></h3>
 <% end %>  
+
+<div class="nav-links">
+<div class="link-1"><h4><a href="/gymnasts">View all Gymnasts</a></h4></div>
+<div class="link-2"><h4><a href="/logout">Logout</a></h4></div>
+</div>

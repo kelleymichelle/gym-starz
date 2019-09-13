@@ -2,20 +2,20 @@
 <h1 style="font-family: 'Barriecito', cursive; font-size:70px;">Welcome, <%= current_gym.name %></h1>
 </center>
 <br>
-<h2>Current Gymnasts:</h2>
+<div class="gym-index">
+<div class="index-header"><h2>Current Gymnasts:</h2></div>
 <br>
   <% @gymnasts.each do |gymnast| %>
-    <div>
+    <div class="gymnast">
       <h3><a href="/gymnasts/<%= gymnast.id %>"><%= gymnast.name %></a></h3><br>
     </div>
   <% end %>    
-
+</div>
 <br>
 
-<h4><a href="/gymnasts/new">Add Gymnast</a></h4>
-
-<br>
-<br>
-<h4><a href="/logout">Logout</a></h4>
+<div class="nav-links">
+<div class="link-1"><h4><a href="/gymnasts/new">Add Gymnast</a></h4></div>
+<div class="link-2"><h4><a href="/logout">Logout</a></h4></div>
+</div>
 
 

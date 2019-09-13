@@ -97,6 +97,25 @@
     flex-direction: column;
   }
 
+  .gym-index {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    margin-left: 40px;
+    justify-content: space-evenly;
+  }
+  .index-header {
+    padding: 20px;
+    justify-content: stretch    
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-top: 40px;
+  }
+
   .container {
     display: inline-grid;
     grid-template-columns: 50%;
