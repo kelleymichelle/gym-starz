@@ -96,6 +96,26 @@
     display: flex;
     flex-direction: column;
   }
+
+  .container {
+    display: inline-grid;
+    grid-template-columns: 50%;
+    grid-template-rows: 8;
+    justify-items: stretch;
+    border: 2px solid black;
+  }
+  .item-1 {
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding: 20px;
+    border: 1px solid black;
+  }
+  .item-2 {
+    grid-column-start: 2;
+    grid-column-end: 3;
+    border: 1px solid black;
+    padding: 20px;
+  }
 }
 
 @media screen and (max-width: 600px) {
