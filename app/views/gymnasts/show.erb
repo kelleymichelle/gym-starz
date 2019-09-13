@@ -25,9 +25,10 @@
 </div>
 <br>
 <br>
-<h4><a href="/gymnasts/<%= @gymnast.id %>/levels">Add skills mastered</a></h4>
-<br>
-<h4><a href="/gymnasts">Go back to all Gymnasts</a></h4>
+<div class="nav-links">
+<div class="item-3"><h4><a href="/gymnasts/<%= @gymnast.id %>/levels">Add skills mastered</a></h4></div>
+<div class="item-4"><h4><a href="/gymnasts">Go back to all Gymnasts</a></h4></div>
+</div>
 <br>
 <br>
 <form method="post" action="/gymnasts/<%= @gymnast.id %>/delete">
