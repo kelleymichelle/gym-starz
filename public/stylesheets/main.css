@@ -26,7 +26,7 @@
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 12px 13px 10px rgba(0,0,0,.3);
     margin: 16px auto;
-    max-width: 1260px;
+    max-width: 1000px;
     padding: 2.25%; /* 18px / 800px */
     width: 85%;
   }
@@ -116,6 +116,14 @@
     padding: 20px;
     justify-content: stretch    
   }
+  .gymnast {
+    justify-items: right;
+  }
+  /* .gym-pic-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+  } */
 
   .nav-links {
     display: flex;
