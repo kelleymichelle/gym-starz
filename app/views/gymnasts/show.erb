@@ -6,9 +6,9 @@
 <div class="container">
 <% Level.all.each do |level| %>
 <div class="item-1"><h2>Level <%= level.gym_level %> Skills </h2></div>
-  <div class="no-skills">
+  
   <% if @gymnast.skills.where("level_id = ?", level.gym_level).empty? %>
-    
+    <div class="no-skills">
     <p> No skills yet mastered for Level <%= level.gym_level %> </p>
   </div>  
   <% else %>  
