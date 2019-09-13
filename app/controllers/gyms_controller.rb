@@ -40,7 +40,7 @@ class GymsController < ApplicationController
   get "/logout" do
     if logged_in?
       session.destroy
-      redirect "/login"
+      redirect "/"
     else
       redirect "/"
     end    

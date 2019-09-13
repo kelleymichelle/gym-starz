@@ -3,10 +3,12 @@
   <br>
   <form method="post" action="/gymnasts/<%= @gymnast.id %>/levels/<%= @level.id %>">
     <input id="hidden" type="hidden" name="_method" value="PATCH">
+    <div class="checklist">
     <% @skills.each do |skill| %>
-      <input type="checkbox" name="gymnast[skills][]" value="<%= skill.id %>" <%= 'checked' if @gymnast.skills.include?(skill) %>><h4><%= skill.category %> - <%= skill.name %></h4>
+     <div class="check"> <input type="checkbox" name="gymnast[skills][]" value="<%= skill.id %>" <%= 'checked' if @gymnast.skills.include?(skill) %>><label> <%= skill.category %> - <%= skill.name %></label></div>
       <br>
   <% end %>
+    </div>
   <br>
   <input type="submit" value="Submit">
   </form>
