@@ -33,5 +33,8 @@
   - 'https://css-tricks.com/snippets/css/a-guide-to-flexbox/'
   - 'https://fonts.google.com/specimen/Barriecito?selection.family=Barriecito'
 
+## MIT License
+  - 'https://github.com/kelleymichelle/gym-starz/blob/master/License.md'
+
 
 
