@@ -9,13 +9,15 @@ class GymsController < ApplicationController
   end
 
   post "/signup" do
-    if params[:name] == "" || params[:password] == ""
-      redirect "/signup"
-    else
+    # if params[:name] == "" || params[:password] == ""
+    #   redirect "/signup"
+    # else
       @gym = Gym.new(params)
-      @gym.save
-      session[:gym_id] = @gym.id
-      redirect "/gymnasts"
+      if @gym.save
+        session[:gym_id] = @gym.id
+      else
+        erb :"/gyms/new"
+      # redirect "/gymnasts"
     end    
   end  
 
@@ -32,8 +34,10 @@ class GymsController < ApplicationController
     if gym && gym.authenticate(params[:password])
       session[:gym_id] = gym.id
       redirect "/gymnasts"
-    else 
-      redirect "/signup"
+    else
+      @error = "Gym name and/or Password didn't match. Please try again."
+      erb :"/gyms/login" 
+      # redirect "/signup"
     end   
   end 
   

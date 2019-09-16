@@ -2,6 +2,18 @@
 <h1>New Gym!</h1>
 <br>
 <h3>Sign Up</h3>
+
+<% if @gym && @gym.errors.any? %>
+    <div id="error_explanation">
+      <h2>Oops</h2>
+      <ul>
+      <% @gym.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
 <form action="/signup" method="post">
   <p>Name: <input type="text" name="name"></p>
   <p>Password: <input type="password" name="password"></p>

@@ -22,6 +22,19 @@
 <div class="add-gymnast-wrapper">
   <div class="form-wrapper">
     <h2>Add a Gymnast</h2>
+
+    
+    <% if @gymnast && @gymnast.errors.any? %>
+      <div id="error_explanation">
+        <h2>Oops</h2>
+        <ul>
+        <% @gymnast.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
     <form action="/gymnasts" method="post">
       <br>
       <p>Name: <input type="text" name="name"></p>

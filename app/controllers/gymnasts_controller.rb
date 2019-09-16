@@ -2,7 +2,8 @@ class GymnastsController < ApplicationController
 
   get "/gymnasts" do
     if logged_in?
-      @gymnasts = Gymnast.where("gym_id = ?", current_gym.id)
+      # @gymnasts = Gymnast.where("gym_id = ?", current_gym.id)
+      @gymnasts = current_gym.gymnasts
       erb :"/gymnasts/index"
     else
       redirect "/login"  
@@ -15,17 +16,19 @@ class GymnastsController < ApplicationController
 
   post "/gymnasts" do
     if logged_in?
-      if params[:name] == ""
-        redirect "/gymnasts/new"
+      # if params[:name] == ""
+      #   erb :"/gymnasts/new"
+        # redirect "/gymnasts/new"
+      
+      @gymnast =  current_gym.gymnasts.build(params)
+      # @gymnast.gym_id = current_gym.id
+      if @gymnast.save
+        redirect "/gymnasts/#{@gymnast.id}"
       else
-        @gymnast =  Gymnast.create(params)
-        @gymnast.gym_id = current_gym.id
-        if @gymnast.save
-          redirect "/gymnasts/#{@gymnast.id}"
-        else  
-          redirect "/gymnasts/new"
-        end
+        erb :"/gymnasts/new"  
+        # redirect "/gymnasts/new"
       end
+    
     else
       redirect "/login"
     end
